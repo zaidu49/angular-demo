@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "houseNumber": 1,
+      "addressLine1": "q",
+      "addressLine2": "w",
+      "town": "w",
+      "county": "w",
+      "postcode": "q1"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": 1,
+      "password": "q"
+    },
+    {
+      "username": "aa",
+      "password": "aaaaaa",
+      "id": 2
+    },
+    {
+      "username": "aa",
+      "password": "aa",
+      "id": 3
+    },
+    {
+      "username": "1",
+      "password": "111111",
+      "id": 4
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

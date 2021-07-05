@@ -1,0 +1,99 @@
+<nav class="navbar navbar-light">
+    <div class="container-fluid">
+        <h1 style="color: #fff;">Address Book</h1>
+        <!-- <div class="d-flex">
+            <button class="btn btn-success" (click)="goToRegister()">Register</button>
+        </div> -->
+        <div class="d-flex">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAddressModal" (click)="clickAddAddress()">Add Address</button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">House number</th>
+            <th scope="col">Address Line 1</th>
+            <th scope="col">Address Line 2</th>
+            <th scope="col">City/Town</th>
+            <th scope="col">County</th>
+            <th scope="col">Postcode</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let address of addressData">
+            <td>{{address.id}}</td>
+            <td>{{address.houseNumber}}</td>
+            <td>{{address.addressLine1}}</td>
+            <td>{{address.addressLine2}}</td>
+            <td>{{address.town}}</td>
+            <td>{{address.county}}</td>
+            <td>{{address.postcode}}</td>
+            <td>
+                <button class="btn btn-info" (click)="onEditAddress(address)" data-bs-toggle="modal" data-bs-target="#addAddressModal">Edit</button>
+                <button class="btn btn-danger" (click)="deleteAddress(address)">Delete</button>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<!-- Add Address Modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addAddressLable">Add New Address</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+
+            <form [formGroup]=formValue>
+                <div class="mb-3">
+                  <label for="houseNumber" class="form-label">House Number</label>
+                  <input type="number" class="form-control" id="houseNumber" formControlName="houseNumber" aria-describedby="emailHelp">
+                  <!-- <div id="houseNumberHelp" class="form-text">Enter the house number.</div> -->
+                </div>
+                <div class="mb-3">
+                  <label for="addressLine1" class="form-label">Address Line 1</label>
+                  <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1">
+                </div>
+                <div class="mb-3">
+                    <label for="addressLine2" class="form-label">Address Line 2</label>
+                    <input type="text" class="form-control" id="addressLine2" formControlName="addressLine2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="town" class="form-label">Town/City</label>
+                    <input type="text" class="form-control" id="town" formControlName="town">
+                  </div>
+                  <div class="mb-3">
+                    <label for="county" class="form-label">County</label>
+                    <input type="text" class="form-control" id="county" formControlName="county">
+                  </div>
+                  <div class="mb-3">
+                    <label for="postcode" class="form-label">Postcode</label>
+                    <input type="text" class="form-control" id="postcode" formControlName="postcode">
+                  </div>
+               
+                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+              </form>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="addAddress()">Add</button>
+          <button class="btn btn-danger" *ngIf="showUpdate" (click)="updateAddress()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
