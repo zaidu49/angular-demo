@@ -6,4 +6,5 @@ export class Address{
     town: string = '';
     county: string = '';
     postcode: string = '';
+    username: string = '';
 }

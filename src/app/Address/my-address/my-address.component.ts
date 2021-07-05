@@ -5,18 +5,18 @@ import { Address } from 'src/app/models/address.model';
 import { AddressService } from 'src/app/providers/address.service';
 
 @Component({
-  selector: 'app-address-list',
-  templateUrl: './address-list.component.html',
-  styleUrls: ['./address-list.component.css']
+  selector: 'app-my-address',
+  templateUrl: './my-address.component.html',
+  styleUrls: ['./my-address.component.css']
 })
-export class AddressListComponent implements OnInit {
-
+export class MyAddressComponent implements OnInit {
   formValue !: FormGroup;
   address: Address = new Address();
   addressData: any;
   showAdd! : boolean;
   showUpdate !: boolean;
   usrname!: any;
+  loggedIn!: boolean;
   constructor(private router: Router,
     private formBuilder: FormBuilder,
     private addressService: AddressService) { }
@@ -33,11 +33,28 @@ export class AddressListComponent implements OnInit {
     })
     this.usrname = localStorage.getItem('username');
     this.getAllAddress();
+    this.getMyAddress(this.usrname);
+    if(this.usrname)
+    {
+      this.loggedIn =true;
+    }
+    else
+    {
+      this.loggedIn = false;
+    }
   }
 
   getAllAddress()
   {
     this.addressService.getAddress()
+    .subscribe(res=>{
+      this.addressData=res;
+    })
+  }
+
+  getMyAddress(username:any)
+  {
+    this.addressService.getMyAddress(username)
     .subscribe(res=>{
       this.addressData=res;
     })
@@ -118,5 +135,4 @@ export class AddressListComponent implements OnInit {
   {
     this.router.navigate(['/register']);
   }
-
 }

@@ -25,4 +25,14 @@ export class AppComponent {
   {
     this.router.navigate(['/address-list']);
   }
+  goToMyAddress()
+  {
+    this.router.navigate(['/my-address']);
+  }
+  logout()
+  {
+    localStorage.removeItem('username');
+  }
+  
+  
 }

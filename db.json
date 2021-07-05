@@ -2,12 +2,23 @@
   "posts": [
     {
       "id": 2,
-      "houseNumber": 1,
+      "houseNumber": 11,
       "addressLine1": "q",
       "addressLine2": "w",
       "town": "w",
       "county": "w",
-      "postcode": "q1"
+      "postcode": "q1",
+      "username": ""
+    },
+    {
+      "id": 3,
+      "houseNumber": 2,
+      "addressLine1": "q",
+      "addressLine2": "qw",
+      "town": "ww",
+      "county": "a",
+      "postcode": "aa1",
+      "username": "1"
     }
   ],
   "users": [

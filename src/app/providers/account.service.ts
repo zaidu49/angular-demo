@@ -32,15 +32,15 @@ export class AccountService {
     }))
   }
 
-  login(username: any, password: any) {
-    return this.http.post<User>("http://localhost:3000/users", { username, password })
-        .pipe(map(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
-            // this.userSubject.next(user);
-            return user;
-        }));
-}
+//   login(username: any, password: any) {
+//     return this.http.post<User>("http://localhost:3000/users", { username, password })
+//         .pipe(map(user => {
+//             // store user details and jwt token in local storage to keep user logged in between page refreshes
+//             localStorage.setItem('user', JSON.stringify(user));
+//             // this.userSubject.next(user);
+//             return user;
+//         }));
+// }
 
 // login(username: any, password: any)
 //   {

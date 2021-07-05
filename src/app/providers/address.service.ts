@@ -16,6 +16,13 @@ export class AddressService {
       return res;
     }))
   }
+  getMyAddress(username: any)
+  {
+    return this.http.get<any>("http://localhost:3000/posts?username="+ username)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
   addAdress(address : any)
   {
     return this.http.post<any>("http://localhost:3000/posts", address)

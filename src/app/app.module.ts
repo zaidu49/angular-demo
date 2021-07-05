@@ -8,13 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './account/register/register.component';
 import { LoginComponent } from './account/login/login.component';
+import { MyAddressComponent } from './Address/my-address/my-address.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddressListComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MyAddressComponent
   ],
   imports: [
     BrowserModule,
