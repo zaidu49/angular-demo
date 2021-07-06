@@ -3,8 +3,6 @@
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 Run `json-server –watch db.json` for JSON server (fake DB) to `http://localhost:4200/`
 
-## Code scaffolding
-
 
 ## Build
 
