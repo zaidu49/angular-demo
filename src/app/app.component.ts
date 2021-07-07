@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,11 +7,26 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-demo';
-
+  usrname!: any;
+  loggedIn!: boolean;
+  
   constructor(private router: Router,
     private formBuilder: FormBuilder) { }
+
+    ngOnInit(): void {
+      this.usrname = localStorage.getItem('username');
+
+      if(this.usrname)
+    {
+      this.loggedIn =true;
+    }
+    else
+    {
+      this.loggedIn = false;
+    }
+    }
 
   goToRegister()
   {
@@ -32,6 +47,7 @@ export class AppComponent {
   logout()
   {
     localStorage.removeItem('username');
+    this.router.navigate(['/address-list']);
   }
   
   

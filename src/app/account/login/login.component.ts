@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
 
       alert("success");
       localStorage.setItem('username',this.form.value.username);
-      this.router.navigate(['/address']);
+      this.router.navigate(['/address-list']);
       // this.loading = true;
       // this.accountService.login(this.form.value.username, this.form.value.username)
       //     .pipe(first())

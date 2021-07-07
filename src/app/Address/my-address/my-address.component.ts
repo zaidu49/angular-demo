@@ -32,7 +32,7 @@ export class MyAddressComponent implements OnInit {
       postcode: [''],
     })
     this.usrname = localStorage.getItem('username');
-    this.getAllAddress();
+    // this.getAllAddress();
     this.getMyAddress(this.usrname);
     if(this.usrname)
     {
@@ -44,13 +44,13 @@ export class MyAddressComponent implements OnInit {
     }
   }
 
-  getAllAddress()
-  {
-    this.addressService.getAddress()
-    .subscribe(res=>{
-      this.addressData=res;
-    })
-  }
+  // getAllAddress()
+  // {
+  //   this.addressService.getAddress()
+  //   .subscribe(res=>{
+  //     this.addressData=res;
+  //   })
+  // }
 
   getMyAddress(username:any)
   {
@@ -83,7 +83,7 @@ export class MyAddressComponent implements OnInit {
       let cancelModal = document.getElementById('cancel')
       cancelModal?.click();
       this.formValue.reset();
-      this.getAllAddress();
+      this.getMyAddress(this.usrname);
     },
     err=>{
       alert("Errorr!!");
@@ -95,7 +95,7 @@ export class MyAddressComponent implements OnInit {
     this.addressService.deleteAddress(address.id)
     .subscribe(res=>{
       alert("Address deleted");
-      this.getAllAddress();
+      this.getMyAddress(this.usrname);
     })
   }
 
@@ -127,7 +127,7 @@ export class MyAddressComponent implements OnInit {
       let cancelModal = document.getElementById('cancel')
       cancelModal?.click();
       this.formValue.reset();
-      this.getAllAddress();
+      this.getMyAddress(this.usrname);
     })
   }
 

@@ -507,20 +507,20 @@
   <div class="container-fluid">
       <h1 style="color: #fff;">Address Book Application</h1>
       <div class="d-flex">
-          <button class="btn btn-success" (click)="goToRegister()">Register</button>
+          <button class="btn btn-success" *ngIf="!loggedIn" (click)="goToRegister()">Register</button>
       </div>
       <div class="d-flex">
-        <button class="btn btn-success" (click)="goToLogin()">Login</button>
+        <button class="btn btn-success" *ngIf="!loggedIn" (click)="goToLogin()">Login</button>
     </div>
       <div class="d-flex">
         <button class="btn btn-success" (click)="goToAddressList()">Address Book</button>
     </div>
     <div class="d-flex">
-      <button class="btn btn-success" (click)="goToMyAddress()">My Address</button>
+      <button class="btn btn-success" *ngIf="loggedIn" (click)="goToMyAddress()">My Address</button>
   </div>
 
   <div class="d-flex">
-    <button class="btn btn-success" (click)="logout()">Logout</button>
+    <button class="btn btn-success" *ngIf="loggedIn" (click)="logout()">Logout</button>
 </div>
       <!-- <div class="d-flex">
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAddressModal" (click)="clickAddAddress()">Add Address</button>
